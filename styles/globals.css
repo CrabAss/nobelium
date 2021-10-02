@@ -2,21 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: 'Inter';
+  font-family: 'IBM Plex Sans';
   font-weight: 100 900;
-  font-display: optional;
+  font-display: swap;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: url('/fonts/Inter-roman.var.woff2') format('woff2');
+  src: url('/fonts/IBMPlexSansVar-Roman.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Inter';
+  font-family: 'IBM Plex Sans';
   font-weight: 100 900;
-  font-display: optional;
+  font-display: swap;
   font-style: italic;
   font-named-instance: 'Italic';
-  src: url('/fonts/Inter-italic.var.woff2') format('woff2');
+  src: url('/fonts/IBMPlexSansVar-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Serif';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('/fonts/SourceSerif.var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Serif';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: url('/fonts/SourceSerif-Italic.var.woff2') format('woff2');
 }
 
 html {
@@ -34,7 +52,7 @@ body::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
 }
 body::-webkit-scrollbar-thumb {
-  background-color: var(--thumbBG) ;
+  background-color: var(--thumbBG);
 }
 
 ::selection {
@@ -59,6 +77,10 @@ body::-webkit-scrollbar-thumb {
   border-bottom-color: transparent;
 }
 
+.remove-sticky {
+  position: unset;
+}
+
 .sticky-nav-full {
   @apply border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;
 }
@@ -69,10 +91,8 @@ body::-webkit-scrollbar-thumb {
   overflow: hidden;
 }
 
-.sticky-nav-full .header-name {
-  /* transform: translateY(0); */
-  /* opacity: 0; */
-  /* display: none */
+.sticky-nav-full .nav {
+  @apply text-gray-600 dark:text-gray-300;
 }
 
 nav {
@@ -80,9 +100,8 @@ nav {
   line-height: 1.5em;
 }
 
-.notion {
-  color: inherit;
-  overflow-wrap: break-word;
+.article-tags::-webkit-scrollbar {
+  width: 0 !important;
 }
 
 .tag-container ul::-webkit-scrollbar {
@@ -99,43 +118,6 @@ nav {
   user-select: none;
 }
 
-.notion,
-.notion-text,
-.notion-quote,
-.notion-list,
-.notion-h-title {
-  @apply leading-8;
-  @apply font-sans;
-  @apply p-0;
-  @apply my-3;
-}
-.notion-bookmark {
-  @apply border-2;
-  @apply border-gray-100;
-}
-.notion-bookmark:hover {
-  @apply border-blue-400;
-}
-.notion-viewport {
-  z-index: -10;
-}
-.notion-asset-caption {
-  @apply text-center;
-}
-.notion-full-width {
-  @apply px-0;
-}
-.notion-page {
-  @apply w-auto;
-  @apply px-0;
-}
-.notion-quote {
-  padding: 0.2em 0.9em;
-}
-.notion-collection-row{
-  @apply hidden
-}
-
 @media (min-width: 768px) {
   .sticky-nav-full {
     @apply max-w-full border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;
@@ -147,6 +129,7 @@ nav {
   }
   .sticky-nav-full .header-name {
     opacity: 1;
+    @apply dark:text-gray-300 text-gray-600;
   }
 }
 

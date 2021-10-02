@@ -5,11 +5,9 @@ import { getAllPosts } from '@/lib/notion'
 import BLOG from '@/blog.config'
 
 export async function getStaticProps () {
-  let posts = await getAllPosts()
-  posts = posts.filter(post => post.status === 'Published' && post.type === 'Post')
+  const posts = await getAllPosts({ includePages: false })
   const postsToShow = posts.slice(0, BLOG.postsPerPage)
   const totalPosts = posts.length
-  // const totalPages = Math.ceil(totalPosts / BLOG.postsPerPage)
   const showNext = totalPosts > BLOG.postsPerPage
   return {
     props: {
@@ -27,7 +25,7 @@ const blog = ({ postsToShow, page, showNext }) => {
       {postsToShow.map(post => (
         <BlogPost key={post.id} post={post} />
       ))}
-      {showNext && <Pagination page={page} showNext={showNext}/>}
+      {showNext && <Pagination page={page} showNext={showNext} />}
     </Container>
   )
 }
