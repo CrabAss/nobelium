@@ -74,6 +74,10 @@ body::-webkit-scrollbar-thumb {
   border-radius: 50% !important;
 }
 
+.utterances {
+  max-width: none !important;
+}
+
 .sticky-nav {
   position: sticky;
   z-index: 10;
