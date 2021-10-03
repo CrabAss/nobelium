@@ -22,7 +22,7 @@ const Footer = ({ fullWidth }) => {
       </div>
       <div className="my-4 text-sm leading-6">
         <p>
-          Any and all opinions listed here are my own and not representative of my employers; future, past and present.
+          Any and all opinions listed here are my own and not representative of my employers.
         </p>
       </div>
     </div>
