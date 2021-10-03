@@ -127,7 +127,8 @@ nav {
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
   }
-  .sticky-nav-full .header-name {
+  .sticky-nav-full .header-name,
+  .homepage-nav .header-name {
     opacity: 1;
     @apply dark:text-gray-300 text-gray-600;
   }

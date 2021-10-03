@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import BLOG from '@/blog.config'
 import { useLocale } from '@/lib/locale'
+import { useRouter } from 'next/router'
 
 const NavBar = () => {
   const locale = useLocale()
@@ -36,6 +37,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
   const useSticky = !BLOG.autoCollapsedNavBar
   const navRef = useRef(null)
   const sentinalRef = useRef([])
+  const router = useRouter()
   const handler = ([entry]) => {
     if (navRef && navRef.current && useSticky) {
       if (!entry.isIntersecting && entry !== undefined) {
@@ -61,7 +63,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
       <div
         className={`sticky-nav m-auto w-full h-6 flex flex-row justify-between items-center mb-2 md:mb-12 py-8 bg-opacity-60 ${
           !fullWidth ? 'max-w-3xl px-4' : 'px-4 md:px-24'
-        }`}
+        } ${router.pathname === '/' ? 'homepage-nav' : ''}`}
         id="sticky-nav"
         ref={navRef}
       >
