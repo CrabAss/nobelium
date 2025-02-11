@@ -1,10 +1,8 @@
-import BLOG from '@/blog.config'
+import { useConfig } from '@/lib/config'
 import { useEffect } from 'react'
+const Utterances = ({ issueTerm, layout }) => {
+  const BLOG = useConfig()
 
-const Utterances = ({
-  issueTerm,
-  layout
-}) => {
   useEffect(() => {
     const theme =
       BLOG.appearance === 'auto'
@@ -30,7 +28,8 @@ const Utterances = ({
       <div
         id="comments"
         className={layout && layout === 'fullWidth' ? '' : 'md:-ml-16'}
-      />
+      >
+      </div>
     </>
   )
 }
