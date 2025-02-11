@@ -68,6 +68,16 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
 }
 
+.blog-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 50% !important;
+}
+
+.utterances {
+  max-width: none !important;
+}
+
 .sticky-nav {
   position: sticky;
   z-index: 10;
