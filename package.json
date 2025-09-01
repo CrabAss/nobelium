@@ -27,7 +27,7 @@
     "feed": "^4.2.2",
     "gitalk": "^1.8.0",
     "mermaid": "^10.9.4",
-    "next": "^14.2.30",
+    "next": "^14.2.32",
     "notion-client": "^6.16.0",
     "notion-utils": "^6.16.0",
     "preact": "^10.19.2",
